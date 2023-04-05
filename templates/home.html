@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Home</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="nav flex justify-between w-full h-16 shadow-xl p-2">
+        <div class="part1 flex items-center"><img class="w-32 mx-10" src="/static/Photos/Grocery STORE logo. png.png" alt=""></div>
+
+        <div class="part2 flex gap-12 items-center font-semibold text-green-800">
+            <a href="#home">Home</a>
+            <a href="#home">Products</a>
+            <a href="#home">Features</a>
+            <a href="#home">Contact</a>
+        </div>
+
+        <div class="part3 flex gap-4 items-center p-1">
+            <input class="w-[200px] outline-1 border-2 px-2 h-8 rounded-md" type="text" placeholder="Search here">
+            <img class="w-[2rem]" src="/static/Photos/search.png" alt="">
+            <img class="w-[2rem]" src="/static/Photos/cart.png" alt="">
+            <button class="text-lg bg-[#F98821] p-1 px-3 rounded-xl text-white"><a href="{% url 'logout' %}">Logout</a></button>
+        </div>
+    </div>
+    
+    <!-- Intro -->
+    <div class="container flex flex-row w-[90vw] my-5 m-auto justify-between align-middle">
+        <div class="right mx-10 my-auto">
+            <h1 class="my-2 text-2xl font-semibold text-sky-700">{{message}}! &#128512;</h1>
+            <h1 class="my-2 text-5xl font-bold text-[#F98821]">Make Healthy Life With Fresh Grocery</h1>
+            <p class="text-xl font-medium text-green-800">Freshness and Quality Delivered to Your Doorstep: Shop with Us Today!</p>
+            <button class="text-lg my-1 bg-[#00A02D] p-1 px-3 rounded-3xl text-white">Shop Now</button>
+        </div>
+        <div class="left">
+            <img src="/static/Photos/grocery - Copy.jpg" alt="">
+        </div>
+    </div>
+
+    
+    <!-- Our Categories -->
+    <h1 class="mb-10 text-4xl text-center font-semibold text-[#F98821]">Our Categories</h1>
+    <div class="categories grid grid-cols-4 gap-3 w-[85vw] m-auto">
+        {% for category in categories%}
+        <div class="caty shadow-lg border rounded-3xl">
+            <img src="/media/{{category.category_img}}" alt="" class="w-[20rem]">
+            <p class="text-center font-semibold text-xl">{{category.category_title}}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+
+    <div>
+        <h1 class="mt-10 text-4xl text-center font-semibold text-[#F98821]">Products</h1>
+    </div>
+
+</body>
+</html>

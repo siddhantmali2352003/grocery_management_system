@@ -1,0 +1,48 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="bg-[url('/static/Photos/background1.jpg')] w-full h-full bg-fixed md:bg-no-repeat bg-cover bg-opacity-25">
+
+    <h1 class="text-center text-3xl md:text-4xl lg:text-5xl font-bold my-5 mt-10 text-pink-700 drop-shadow-xl">GROCERY <span class="font-semibold text-purple-800">Management System</span></h1>
+
+    
+    <div class="container flex flex-col justify-center items-center align-middle mt-10 shrink m-auto">
+        <div class=" md:w-[54vw]  lg:w-[30vw]  w-[75vw] bg-opacity-50 text-cyan-900 bg-white rounded-xl shadow-xl p-3">
+            
+            <h2 class="text-center text-xl font-semibold">{{status | safe}}</h2>
+            <form action="" method="post" class="py-2">
+                {% csrf_token %}
+                <h2 class="text-center text-3xl font-bold ">Sign Up</h2>
+
+                <label for="name" class="my-2 text-lg font-semibold ">Name</label><br>
+                <input type="text" placeholder="Enter your Name" name="username" id="uname" class="my-2 w-full p-2 rounded-xl bg-transparent  border border-1 "><br>
+
+                <label for="email" class="my-2 text-lg font-semibold">Email</label><br>
+                <input type="email" placeholder="Enter your valid email address" name="email" id="email" class="my-2 w-full p-2 rounded-xl bg-transparent  border border-1 "><br>
+
+                <label for="password" class="my-2 text-lg font-semibold">Create Password</label><br>
+                <input type="password" placeholder="Create a strong password" name="password1" id="password" class="my-2 w-full p-2 rounded-xl bg-transparent  border border-1 "><br>
+
+                <label for="password2"class="my-2 text-lg font-semibold ">Confirm Password</label><br>
+                <input type="password" placeholder="Re-enter your password" name="password2" id="password2" class="my-2 w-full p-2 rounded-xl bg-transparent  border border-1"><br>
+
+                <h2 class="text-center text-lg font-semibold text-red-700">{{status1 | safe}}</h2>
+                <button type="submit" class="w-full my-2 p-2 text-lg font-semibold rounded-xl bg-transparent active:bg-white border border-1">Create Account</button>
+            </form>
+            <p class="text-center my-2 m-auto w-full rounded-2xl bg-opacity-50 text-black text-md font-semibold">Already have an Account? <span class="text-blue-800  rounded-xl"><a href="{% url 'login' %}">Sign in</a></span></p>
+
+            
+        </div>
+    </div>
+    
+    
+</body>
+</html>
